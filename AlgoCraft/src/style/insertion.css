@@ -1,0 +1,66 @@
+.visual-array {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .visual-box {
+    width: 70px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #6a66d4;
+    background-color: #7b73eb;
+    transition: all 0.5s ease;
+  }
+  
+  /* Shifting right as element moves to a higher index */
+  .insertion-move-right {
+    animation: moveRight 0.5s forwards;
+  }
+  
+  /* Shifting left as element moves to a lower index */
+  .insertion-move-left {
+    animation: moveLeft 0.5s forwards;
+  }
+  
+  /* Keyframes to animate right movement */
+  @keyframes moveRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(70px); /* Adjust this value for box width */
+    }
+  }
+  
+  /* Keyframes to animate left movement */
+  @keyframes moveLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-70px); /* Adjust this value for box width */
+    }
+  }
+  
+  /* Highlighted boxes when comparing */
+  .insertion-comparing {
+    background-color: #b4b7ed !important;
+    border-color: orange;
+  }
+  
+  /* Highlighted boxes after they are placed in the correct position */
+  .insertion-sorted {
+    background-color: #2ecc71 !important; /* Green to indicate sorted */
+  }
+  
+  /* Optional style for sorting completion */
+  .sorting-done {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #27ae60;
+  }
+  

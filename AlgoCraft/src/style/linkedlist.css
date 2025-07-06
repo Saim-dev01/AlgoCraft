@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #7b73eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #45a049;
+  }
+  
+  .visualization-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .linked-list-visualization, .algorithm-container {
+    flex: 1;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    margin-top: 0;
+    text-align: center;
+    color: #444;
+  }
+  
+  .list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  
+  .list-node {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #7b73eb;
+    border-radius: 5px;
+    background-color: #e8f5e9;
+    min-width: 60px;
+  }
+  
+  .node-value {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .node-address {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .algorithm-container {
+    text-align: left;
+    background-color: #f1f8e9;
+    border-left: 4px solid #7b73eb;
+  }
+  
+  .algorithm-line {
+    padding: 5px 10px;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+  }
+  
+  .algorithm-line.highlight {
+    background-color: #dcedc8;
+  }
+  
+  .steps-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .steps-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .steps-container li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+
+
+  /* styles.css or similar */
+.animation-container {
+  position: absolute;
+  width: 100%;
+  height: 50px; /* Adjust as needed */
+  bottom: -60px; /* Position below linked list */
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.new-node-animation {
+  border: 1px solid #6E56CF;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: #6E56CF;
+  font-weight: bold;
+  background-color: #f9f9f9;
+  position: absolute; /* Needed for animation */
+}

@@ -1,0 +1,84 @@
+/* ArrayForm.css */
+.btn-default-values,
+.btn-default-values:active {
+    background-color: #7b73eb !important;
+    border-color: #7b73eb !important;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.array-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 0px !important;
+}
+
+.btn-show-array {
+    background-color: #fd997a;
+    color: white;
+    font-weight: bolder;
+}
+
+.btn-show-array:hover {
+    background-color: #c6755d;
+    color: white;
+    font-weight: bolder;
+}
+
+.btn-default-values:hover {
+    background-color: #6a66d4 !important;
+    border-color: #6a66d4 !important;
+    color: white;
+}
+
+.btn-submit {
+    background-color: #FFBF00;
+    border-color: #FFBF00;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #e79f0f;
+    border-color: #e79f0f;
+    color: white;
+}
+
+.btn-default-values:active {
+    background-color: #7b73eb !important;
+    border-color: #7b73eb !important;
+    color: white !important;
+}
+
+.btn-submit:active {
+    background-color: #FFBF00 !important;
+    border-color: #FFBF00 !important;
+    color: white !important;
+}
+
+.btn-show-array:active {
+    background-color: #fd997a !important;
+    color: white !important;
+    font-weight: bolder !important;
+}
+
+
+@media (max-width: 767px) {
+    .init-visual {
+        margin-top: 30px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .init-visual {
+        margin-top: 30px !important;
+    }
+}
+
+.init-visual {
+    margin-top: 0px !important;
+}

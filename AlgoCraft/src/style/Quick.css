@@ -1,0 +1,33 @@
+  .pivot {
+    background-color: #ad6c8d !important; /* Bright yellow to highlight the pivot */
+    color: black;
+    transition: background-color 0.5s ease;
+  }
+
+  .swap-to-right {
+    animation: slideRight 1s forwards;
+  }
+  
+  .swap-to-left {
+    animation: slideLeft 1s forwards;
+  }
+  
+  @keyframes slideRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(var(--swap-distance)); /* Use CSS variable */
+    }
+  }
+  
+  @keyframes slideLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(var(--swap-distance)); /* Use CSS variable */
+    }
+  }
+  
+

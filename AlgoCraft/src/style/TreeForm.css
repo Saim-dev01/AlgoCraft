@@ -1,0 +1,168 @@
+
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#tree-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto; /* This enables scrolling */
+  box-sizing: border-box; /* Ensure padding/margin doesn't affect the size */
+}
+
+
+.button-group button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Buttons */
+.btn-default-values,
+.btn-default-values:active {
+  background-color: #634DBA;
+  border-color: #634DBA;
+  font-family: 'CustomFont', sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.btn-show-tree {
+  background-color: #fd997a; /* A lighter green for "Show Tree" */
+  color: white;
+  font-weight: bolder;
+}
+
+.btn-show-tree:hover {
+  background-color: #c6755d;
+  color: white;
+  font-weight: bolder;
+}
+
+.btn-default-values:hover {
+  background-color: #634DBA; /* Slightly darker green */
+  border-color: #634DBA;
+  color: white;
+}
+
+.btn-submit {
+  background-color: #FFBF00; /* Retained gold for submission */
+  border-color: #FFBF00;
+  font-family: 'CustomFont', sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.btn-submit:hover {
+  background-color: #e79f0f;
+  border-color: #e79f0f;
+  color: white;
+}
+
+.btn-default-values:active {
+  background-color: #634DBA ;
+  border-color: #634DBA;
+  color: white !important;
+}
+
+.btn-submit:active {
+  background-color: #FFBF00 !important;
+  border-color: #FFBF00 !important;
+  color: white !important;
+}
+
+.btn-show-tree:active {
+  background-color: #c6755d !important;
+  color: white !important;
+  font-weight: bolder !important;
+}
+
+/* Right section for the tree visualization */
+.right-section {
+  flex: 2;
+  padding: 20px;
+  background-color: #ffffff;
+  align-items: center;
+  overflow: hidden; /* Prevent content from overflowing */
+
+ 
+}
+
+.visualization-container {
+  width: 80%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 100px;
+  background-color: white; /* Soft green background for tree visuals */
+  text-align: center;
+}
+.visualization-container1 {
+  flex: 1 1 auto;
+  max-width: 100%;
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+  min-height: 400px;
+  max-height: 600px;
+  height: auto;
+  display: block;
+  overflow: auto !important; /* Enable scrolling for overflow */
+}
+
+
+
+/* Tree Node and Link Styles */
+.node {
+  fill: #634DBA ; /* Green nodes */
+  stroke: white;
+  stroke-width: 1px;
+}
+
+.link {
+  stroke: #ccc; /* Gray links */
+  stroke-width: 2px;
+}
+
+.label {
+  fill: #333;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 767px) {
+  .container {
+      flex-direction: column;
+  }
+
+  .visualization-container1 {
+      margin-top: 30px;
+  }
+
+  .left-section {
+      margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+      flex-direction: column;
+  }
+
+  .visualization-container1 {
+      margin-top: 30px;
+  }
+
+  .left-section {
+      margin-bottom: 30px;
+  }
+}

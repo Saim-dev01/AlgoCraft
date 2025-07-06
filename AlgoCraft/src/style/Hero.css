@@ -1,0 +1,89 @@
+/* Hero Text Styling */
+.hero-section {
+    position: relative;
+    background-image: url('../assets/wave11.svg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    /* Adjusts background size to cover the area */
+    background-position: bottom;
+    /* Positions the background at the bottom center */
+    min-height: 120vh;
+    /* Ensures the hero section takes full height */
+
+}
+
+.hero-title {
+    font-size: 4.7rem;
+    text-align: left !important;
+    font-weight: bold;
+    color: #4F589A;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #7b73eb;
+}
+
+/* CTA Button */
+.btn-start {
+    background-color: #7b73eb;
+    border-color: #7b73eb;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+
+.btn-start:hover {
+    background-color: #6a66d4;
+    border-color: #6a66d4;
+}
+
+.heroIllustration {
+    position: absolute;
+    top: -80px;
+    right: 0;
+    height: 40rem;
+    width: 40rem;
+}
+
+/* For md screens and below */
+@media (max-width: 991px) {
+    .heroIllustration {
+        position: relative;
+        top: 0;
+        margin: 0 auto;
+        display: block;
+        height: 35rem;
+        /* Smaller size for medium screens */
+        width: 35rem;
+    }
+
+    .row {
+        text-align: center;
+    }
+
+    .hero-section {
+        min-height: 100vh;
+        /* Ensures the hero section takes full height */
+
+    }
+}
+
+/* For sm screens and below */
+@media (max-width: 576px) {
+    .heroIllustration {
+        height: 28rem;
+        /* Smaller size for small screens */
+        width: 28rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        /* Adjust text size for smaller screens */
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+}

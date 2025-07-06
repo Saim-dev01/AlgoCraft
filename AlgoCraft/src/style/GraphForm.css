@@ -1,0 +1,269 @@
+/* .form-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.graph-visualization {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    text-align: center;
+} */
+
+
+.bfs-code {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    border: none !important;
+    background-color: white !important;
+}
+
+.dynamic-heading {
+    margin-top: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Base reset so our custom styles actually apply */
+.bfs-speed-control input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    /* track thickness */
+    background: transparent;
+    /* we’ll style track via pseudo elements */
+    cursor: pointer;
+}
+
+/* WebKit track (Chrome, Safari, Edge) */
+.bfs-speed-control input[type=range]::-webkit-slider-runnable-track {
+    height: 6px;
+    background: #634DBA;
+    border-radius: 3px;
+}
+
+/* WebKit thumb */
+.bfs-speed-control input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    margin-top: -5px;
+    /* center thumb on track */
+    border-radius: 50%;
+    background: #634DBA;
+    border: none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Firefox track */
+.bfs-speed-control input[type=range]::-moz-range-track {
+    height: 6px;
+    background: #634DBA;
+    border-radius: 3px;
+}
+
+/* Firefox thumb */
+.bfs-speed-control input[type=range]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #634DBA;
+    border: none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* IE/Edge Legacy track */
+.bfs-speed-control input[type=range]::-ms-track {
+    width: 100%;
+    height: 6px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+/* IE/Edge Legacy filled portions */
+.bfs-speed-control input[type=range]::-ms-fill-lower {
+    background: #634DBA;
+    border-radius: 3px;
+}
+
+.bfs-speed-control input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.bfs-card {
+    margin-bottom: 15px !important;
+}
+
+/* IE/Edge Legacy thumb */
+.bfs-speed-control input[type=range]::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #634DBA;
+    border: none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    margin-top: 0;
+    /* IE doesn’t need negative margin */
+}
+
+.bfs-card {
+    border: #d6d5d5 solid 2px;
+}
+
+.clrhead {
+    color: #634DBA;
+    font-family: 'CustomFont', sans-serif;
+    font-size: 2.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.togglebtn,
+.togglebtn2 {
+    background-color: white;
+    color: #634DBA;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.main-visualizer {
+    position: relative;
+    width: 460px;
+    margin: 0 auto;
+}
+
+.main-visualizer .bfs-main {
+    margin-top: 1rem;
+}
+
+.main-visualizer .bfs-main .bfs-right {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 20px;
+}
+
+
+
+.algorithm-panel {
+    /* ensure it spans full width below the SVG */
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.togglebtn:active,
+.togglebtn:hover {
+    color: #634DBA !important;
+
+}
+
+.form-graph-container {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    /* Or wrap if you want stacking on smaller devices */
+}
+
+/* .form-graph-container {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 0px !important;
+} */
+
+.edge-weight {
+    fill: #634DBA;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+    pointer-events: none;
+}
+
+/* SVG container for the graph */
+.graph-container {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    margin: auto;
+    display: block;
+}
+
+/* Node styles */
+.node-group {
+    cursor: pointer;
+}
+
+.node-circle {
+    fill: #634DBA;
+    stroke: white;
+    stroke-width: 2px;
+}
+
+.node-text {
+    fill: #fff;
+    font-size: 14px;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+}
+
+/* Edge styles */
+.edge-line {
+    stroke: #ccc;
+    stroke-width: 2px;
+}
+
+/* Button styling */
+.btn-default-values,
+.btn-default-values:active {
+    background-color: #7b73eb !important;
+    border-color: #7b73eb !important;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-show-graph {
+    background-color: #fd997a;
+    color: white;
+    font-weight: bolder;
+}
+
+.btn-show-graph:hover {
+    background-color: #c6755d;
+    color: white;
+    font-weight: bolder;
+}
+
+.btn-submit {
+    background-color: #FFBF00;
+    border-color: #FFBF00;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #e79f0f;
+    border-color: #e79f0f;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .form-graph-container {
+        flex-direction: column;
+    }
+
+    .graph-visualization {
+        margin-top: 30px;
+    }
+}

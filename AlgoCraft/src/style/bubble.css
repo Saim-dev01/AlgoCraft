@@ -1,0 +1,162 @@
+.array-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  /* padding: 20px; */
+}
+
+.array-box {
+  width: 70px;
+  height: 50px;
+  /* margin: 5px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #6a66d4;
+  background-color: #7b73eb;
+  font-weight: bolder;
+  color: white;
+  transition: all 0.5s ease;
+  /* transition: transform 1s ease; */
+}
+
+.comparing {
+  border-color: orange;
+  background-color: #a2a4cc !important;
+}
+
+.swap-number-right {
+  animation: moveRight 1s forwards;
+}
+
+.swap-number-left {
+  animation: moveLeft 1s forwards;
+}
+
+@keyframes moveRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(70px);
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-70px);
+  }
+}
+
+.algorithm-code {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlighting for the algorithm lines */
+.highlight {
+  background-color: #a2a4cc;
+  border: 2px solid #ff9900;
+  font-weight: bold;
+}
+
+.pointer {
+  position: absolute;
+  left: -30px;
+  top: -14px;
+  color: rgb(92, 33, 92);
+  font-size: xx-large;
+}
+
+.message {
+  font-size: 18px;
+  color: #a92d2d;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/*css for remove feild on side bar*/
+.remove-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.remove-input {
+  margin-right: 10px;
+  /* Space between the input field and the button */
+  width: 80px;
+  /* Adjust width as needed */
+}
+
+.nav-link.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.startbtn,
+.restartbtn,
+.pausebtn {
+  padding: 10px 20px;
+  margin: 10px;
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: none;
+  border: none;
+}
+
+.startbtn {
+  background-color: #7b73eb;
+  border-color: #7b73eb;
+  font-family: 'CustomFont', sans-serif;
+}
+
+.startbtn:hover {
+  background-color: #6a66d4;
+}
+
+.restartbtn {
+  background-color: #FFBF00;
+  border-color: #FFBF00;
+  font-family: 'CustomFont', sans-serif;
+  font-weight: bold;
+}
+
+.restartbtn:hover {
+  background-color: #e79f0f;
+  border-color: #e79f0f;
+}
+
+.pausebtn {
+  background-color: #7b73eb;
+  border-color: #7b73eb;
+  font-family: 'CustomFont', sans-serif;
+}
+
+.pausebtn:disabled {
+  background: #fff;
+  color: #ccc;   /* Or any color you want for the text */
+  cursor: not-allowed;
+}
+
+.nav-link.sidebar-item {
+  display: block;
+  font-size: large;
+  padding: 8px 12px;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.nav-link.sidebar-item:hover {
+  background: #5A46B0 !important;
+}
+

@@ -1,0 +1,58 @@
+/* AuthForm.css - Shared styles for Login and Register pages */
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  padding: 2.5rem 2rem;
+  max-width: 350px;
+  margin: 3rem auto;
+}
+.auth-form-container h2 {
+  color: #3b3b3b;
+  font-family: 'PorterBold', sans-serif;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+.auth-form-container input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #bfcfff;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8faff;
+  transition: border 0.2s;
+  font-family: inherit;
+}
+.auth-form-container input:focus {
+  border: 1.5px solid #6366f1;
+  outline: none;
+}
+.auth-form-container button {
+  width: 100%;
+  padding: 0.8rem 0;
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-family: 'PorterBold', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-bottom: 0.5rem;
+}
+.auth-form-container button:hover {
+  background: linear-gradient(90deg, #60a5fa 0%, #6366f1 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+.auth-form-container p {
+  color: #ef4444;
+  margin-top: 0.5rem;
+  font-size: 0.98rem;
+}

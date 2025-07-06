@@ -1,0 +1,36 @@
+/* src/style/Navbar.css */
+.container {
+    padding: 0 !important;
+}
+
+.btn-start-visualizing {
+    background-color: #7b73eb;
+    border-color: #7b73eb;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+}
+
+.btn-start-visualizing:hover {
+    background-color: #6a66d4;
+    /* Slightly darker shade of #7b73eb */
+    border-color: #6a66d4;
+}
+
+.btn-algomate {
+    background-color: #FFBF00;
+    border-color: #FFBF00;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+}
+
+.btn-algomate:hover {
+    background-color: #e79f0f;
+    /* Slightly darker shade of #fdac0b */
+    border-color: #e79f0f;
+}
+
+body {
+    font-family: 'CustomFont', sans-serif;
+    /* font-weight: bold; */
+    /* Apply the custom font */
+}

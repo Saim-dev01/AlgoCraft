@@ -1,0 +1,127 @@
+/* Buttons */
+.btn-default {
+    background-color: #7b73eb;
+    border-color: #7b73eb;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: #6a66d4;
+    border-color: #6a66d4;
+    color: white;
+}
+
+.btn-default:active {
+    background-color: #7b73eb !important;
+    border-color: #7b73eb !important;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    color: white !important;
+}
+
+.btn-add-node:active {
+    background-color: #fd997a !important;
+    border-color: #fd997a !important;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    color: white !important;
+}
+
+.btn-add-node {
+    background-color: #fd997a;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-add-node:hover {
+    background-color: #c6755d;
+    color: white;
+}
+
+.btn-submit {
+    background-color: #FFBF00;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background-color: #e79f0f;
+}
+
+/* Linked List Visualization */
+.linkedlist-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+}
+
+.linkedlist-node {
+    background-color: #7b73eb;
+    color: white;
+    font-weight: bold;
+    font-family: 'CustomFont', sans-serif;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    min-width: 50px;
+    position: relative;
+    /* Required for positioning indicators */
+}
+
+.linkedlist-arrow {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #7b73eb;
+}
+
+/* Head Node */
+.head-node {
+    border: 2px solid #28A745;
+    /* Highlight the head node with green */
+    background-color: #8a77e6;
+}
+
+.head-indicator {
+    position: absolute;
+    top: -20px;
+    /* Position the indicator above the node */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #28A745;
+}
+
+/* Tail Node */
+.tail-node {
+    border: 2px solid #FF5733;
+    /* Highlight the tail node with orange */
+    background-color: #8a77e6;
+}
+
+.tail-indicator {
+    position: absolute;
+    bottom: -20px;
+    /* Position the indicator below the node */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #FF5733;
+}
+
+/* Visualization Heading */
+.init-visual {
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .linkedlist-container {
+        gap: 5px;
+    }
+}

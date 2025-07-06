@@ -1,0 +1,186 @@
+.startbutton,
+.startbutton:active {
+    background-color: #7b73eb !important;
+    border-color: #7b73eb !important;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    color: white !important;
+}
+
+.startbutton:hover {
+    background-color: #6a66d4 !important;
+    border-color: #6a66d4 !important;
+    color: white;
+}
+
+.startbutton:disabled {
+    color: white !important;
+}
+
+.resetbutton,
+.resetbutton:active {
+    margin-left: 0% !important;
+    background-color: #FF9900 !important;
+    border-color: #FF9900 !important;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    color: white !important;
+}
+
+.btn-show-graph:active {
+    background-color: #fd997a !important;
+    border-color: #fd997a !important;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+    color: white !important;
+}
+
+.resetbutton:hover {
+    background-color: #ffa825 !important;
+    border-color: #ffa825 !important;
+    color: white;
+}
+
+.resetbutton:disabled {
+    color: white !important;
+}
+
+
+.bfs-container {
+    padding: 10px;
+}
+
+.bfs-controls input {
+    width: 100px;
+    margin-right: 6px;
+}
+
+.node-circle.visited-node {
+    fill: #A2A4CC !important;
+}
+
+.bfs-main {
+    display: flex;
+    gap: 20px;
+}
+
+.bfs-left {
+    flex: 1;
+}
+
+.bfs-right {
+    flex: 1;
+    /* margin-top: 2.5rem !important;  */
+}
+
+.log-steps {
+    text-align: left !important;
+}
+
+.bfs-log {
+    line-height: 2rem;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 6px;
+    margin-top: 6px;
+}
+
+.bfs-code {
+    background: #fafafa;
+    padding: 6px;
+    border: 1px solid #ddd;
+    font-family: monospace;
+}
+
+.highlight {
+    background: #FFBF00;
+    /* gold accent for code highlighting */
+}
+
+/* smooth transitions */
+.node-circle,
+.edge-line {
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* default node fill (brand purple) */
+.node-circle {
+    fill: #634DBA;
+    stroke: white;
+    stroke-width: 2px;
+}
+
+/* target the controls DIV that lives inside the graph wrapper */
+.main-visualizer .bfs-container .bfs-controls {
+    position: absolute;
+    top: 0;
+    /* sits at very top of that 3rem padding */
+    left: 50%;
+    /* centered horizontally */
+    transform: translateX(-50%);
+    z-index: 10;
+    /* float above everything */
+}
+
+/* keep your log + code from shooting up into the padding */
+.main-visualizer .bfs-container .bfs-main {
+    margin-top: 1rem;
+    /* or whatever gap you like under the graph */
+}
+
+/* persistent “visited” node style (lighter lavender) */
+.node-circle.visited-node {
+    fill: #A2A4CC;
+    stroke: #634DBA;
+    stroke-width: 3px;
+}
+
+/* persistent “traversed” edge style (brand purple) */
+.edge-line.traversed-edge {
+    stroke: #634DBA;
+    stroke-width: 3px;
+}
+
+/* current highlight overrides (gold) */
+.node-circle.highlight-node,
+.edge-line.highlight-edge {
+    stroke: #FFBF00 !important;
+    stroke-width: 4px !important;
+}
+
+.bfs-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-select.rounded-pill {
+    border-radius: 5px !important;
+    height: 2.2rem !important;
+    cursor: pointer !important;
+}
+
+.form-select:invalid {
+    color: #6c757d;
+    font-size: medium;
+    /* light gray placeholder color */
+}
+
+.form-select option {
+    color: #343a40;
+}
+
+.bfs-code {
+    text-align: left !important;
+}
+
+.bfs-mini-step {
+    font-size: large;
+    color: #FF9900;
+    /* font-weight: bolder; */
+}
+
+.highlight {
+    background-color: #A2A4CC !important;
+}

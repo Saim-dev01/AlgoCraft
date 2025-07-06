@@ -1,0 +1,13 @@
+.found {
+  background-color: #caba9d !important;
+  /* Green color for found element */
+  border: 2px solid #d2e190;
+  /* Optional: Add a border */
+}
+
+.message {
+  font-size: 18px;
+  color: #a92d2d;
+  margin-top: 20px;
+  font-weight: bold;
+}

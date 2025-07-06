@@ -1,0 +1,96 @@
+.landing-cta-container {
+    overflow-x: hidden;
+    background-color: #ececf4;
+    /* Set the background color */
+    padding-top: 4rem;
+    /* Adjust padding if needed */
+}
+
+.Landing-cta-heading {
+    font-size: 3rem;
+    color: #5653ad;
+    font-weight: bold;
+    text-align: left;
+    /* Default alignment for large screens */
+}
+
+.Landing-cta-para {
+    font-size: 1.3rem;
+    color: #5653ad;
+    margin-top: 2px;
+    line-height: 2.2rem;
+    text-align: left;
+    /* Default alignment for large screens */
+}
+
+.btn-start2 {
+    background-color: #6a66d4;
+    border-color: #6a66d4;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    width: 50%;
+}
+
+.btn-start2:hover {
+    background-color: #7b73eb;
+    border-color: #7b73eb;
+}
+
+/* Responsive Styling */
+
+/* For medium screens (md) */
+@media (max-width: 992px) {
+    .Landing-cta-heading {
+        font-size: 2.5rem;
+        text-align: center;
+        /* Center align text for medium screens */
+    }
+
+    .Landing-cta-para {
+        font-size: 1.4rem;
+        text-align: center;
+        /* Center align text for medium screens */
+    }
+
+    .btn-start2 {
+        width: 100%;
+        /* Full width button on medium screens */
+    }
+}
+
+/* For small screens (sm) */
+@media (max-width: 576px) {
+    .Landing-cta-heading {
+        margin-top: 40px;
+        text-align: center;
+        /* Center align text for small screens */
+    }
+
+    .Landing-cta-para {
+        text-align: center;
+        /* Center align text for small screens */
+    }
+
+    .btn-start2 {
+        width: 80% !important;
+        /* Full width button on small screens */
+    }
+}
+
+/* For medium screens, adjusting the illustration size */
+@media (max-width: 992px) {
+    .animation-container2 {
+        height: 90%;
+
+        width: 90%;
+    }
+
+    .btn-start2 {
+        width: 50%;
+    }
+
+    .left-side {
+        align-items: center !important;
+    }
+}

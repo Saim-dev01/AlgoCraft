@@ -1,0 +1,184 @@
+.feature-left {
+    background-color: #7B73EB;
+    border-radius: 30px;
+}
+
+@media (min-width: 992px) {
+    .feature-right-inside {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 48.8%;
+    }
+}
+
+
+.feature-right-inside {
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.right-top {
+    background-color: #fdaf97;
+}
+
+.right-bottom {
+    background-color: #FFBF00;
+}
+
+@media (max-width: 576px) {
+    .feature-right {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-top: 15px;
+    }
+
+    .right-bottom {
+        margin-top: 15px;
+    }
+
+    .heading1 {
+        font-size: 2.5rem !important;
+        font-weight: bold !important;
+        color: #4F589A;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 20px 30px;
+    }
+    .left-innerh1 {
+        color: white;
+        font-weight: bold !important;
+        font-size: 2.7rem !important;
+    }
+    .subheading1 {
+        font-size: 1rem;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+.feature-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.feature-subtext {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: white;
+    line-height: 1.5;
+}
+
+.heading1 {
+    font-size: 3rem;
+    font-weight: bolder;
+    color: #4F589A;
+}
+
+.subheading1 {
+    font-size: 2rem;
+    color: #4F589A;
+}
+
+.left-innerh1 {
+    color: white;
+    font-weight: bolder;
+    font-size: 3.1rem;
+}
+
+.left-inner2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pills {
+    background-color: #9d97ed;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 50px;
+    margin-right: 10px;
+    /* Add margin to ensure spacing between pills */
+}
+
+@media (max-width: 596px) {
+    .left-inner3 {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        /* Add a fixed gap between the cards */
+    }
+
+    .left-inner3 .card {
+        width: 100%;
+        /* Full width on smaller screens */
+        padding: 50px 50px;
+    }
+
+    .pills {
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+}
+
+.left-inner3 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Add a fixed gap between the cards */
+}
+
+.left-inner3 .card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    /* Ensure consistent spacing */
+}
+
+@media (max-width: 768px) {
+    .left-inner3 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* Adjust to ensure spacing between wrapped items */
+        gap: 20px;
+        /* Add a fixed gap between the cards */
+    }
+
+    .left-inner3 .card {
+        width: 100%;
+        /* Make the cards take up half the width with a gap between */
+    }
+}
+
+
+/* Custom styles for screen sizes between 597px and 766px */
+@media (min-width: 597px) and (max-width: 768px) {
+    .left-inner3 {
+        flex-wrap: wrap;
+    }
+
+    .left-inner3 .card:nth-child(3) {
+        width: 100%;
+        /* Make the 3rd card take full width */
+    }
+
+    .left-inner3 .card:nth-child(1),
+    .left-inner3 .card:nth-child(2) {
+        width: calc(50% - 20px);
+        /* The first two cards take 50% width */
+    }
+}

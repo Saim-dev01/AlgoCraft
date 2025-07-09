@@ -31,22 +31,7 @@ function App() {
           <Route path="/" element={
             <>
             <Login />
-              <div id="hero">
-                <Hero />
-              </div>
-              <div id="features">
-                <Features />
-              </div>
-              <div id="how-to-visualize">
-                <HowToVisualize />
-              </div>
-              <div id="about-us">
-                <AboutUs />
-              </div>
-              <div id="landing-cta">
-                <LandingCTA />
-              </div>
-        
+            
             </>
           } />
           <Route path="/main" element={

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth'; // ✅ Firebase imports
 import logo from '../assets/logo.png';
 import '../style/Navbar.css';
 
 function CustomNavbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
+     const auth = getAuth(); // ✅ Get the current Firebase auth instance
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -23,6 +26,19 @@ function CustomNavbar() {
             }
         }
     }, [location]);
+
+        const handleLogout = () => {
+    signOut(auth)
+            .then(() => {
+                console.log('User signed out');
+                navigate('/'); // Redirect to home or login
+            })
+            .catch((error) => {
+                console.error('Error signing out:', error);
+                // Optional: show an alert or toast here
+            });
+   
+    };
 
     return (
         <Navbar bg="white" variant="light" sticky="top" className={`mt-2 ${isScrolled ? 'shadow-sm' : ''}`} expand="lg">
@@ -51,6 +67,14 @@ function CustomNavbar() {
                                 className="btn-start-visualizing"
                             >
                                 Start Visualizing!
+                            </Button>
+                        </Nav.Link>
+                        <Nav.Link onClick={handleLogout}> {/* Use onClick for logout */}
+                            <Button
+                                variant="primary"
+                                className="btn-start-visualizing"
+                            >
+                                Logout
                             </Button>
                         </Nav.Link>
                     </Nav>

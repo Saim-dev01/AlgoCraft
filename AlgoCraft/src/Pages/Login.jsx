@@ -17,7 +17,6 @@ const Login = () => {
       // Set user in localStorage for auth check
       localStorage.setItem('user', email);
       navigate("/main");
-      alert("Login successful!");
     } catch (err) {
       setError(err.message);
     }

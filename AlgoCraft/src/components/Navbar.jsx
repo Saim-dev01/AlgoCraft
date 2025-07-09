@@ -27,7 +27,7 @@ function CustomNavbar() {
     return (
         <Navbar bg="white" variant="light" sticky="top" className={`mt-2 ${isScrolled ? 'shadow-sm' : ''}`} expand="lg">
             <Container>
-                <Navbar.Brand href="/">
+                <Navbar.Brand href="/main">
                     <img
                         src={logo}
                         alt="Logo"

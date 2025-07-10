@@ -1,7 +1,7 @@
 // src/App.jsx
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import CustomNavbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -22,18 +22,16 @@ import LLVisualization from './Pages/LLvisualizaion';
 import TreeVisualization from './Pages/TreeVisualization';
 import './style/bubble.css';
 import GraphVisualization from './Pages/GraphVisualization';
+import History from './Pages/History';
+
 function App() {
   return (
     <Router>
       <div className="App">
         <CustomNavbar />
         <Routes>
-          <Route path="/" element={
-            <>
-            <Login />
-            
-            </>
-          } />
+          {/* Redirect root to /main for guests */}
+          <Route path="/" element={<Navigate to="/main" replace />} />
           <Route path="/main" element={
             <>
               <div id="hero">
@@ -65,6 +63,7 @@ function App() {
           <Route path="/graph-form" element={<GraphForm />} />
           <Route path="/tree-visualization" element={<TreeVisualization />} />
           <Route path="/graph-visualization" element={<GraphVisualization />} />
+          <Route path="/history" element={<History />} />
         </Routes>
         <Footer />
       </div>

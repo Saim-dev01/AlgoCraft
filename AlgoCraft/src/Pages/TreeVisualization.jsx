@@ -11,16 +11,21 @@ import PostorderTraversal from "../components/TreeComponents/PostOrder";
 import RemoveNode from "../components/TreeComponents/RemoveTreeNode";
 import AddNode from "../components/TreeComponents/AddTreeNode";
 import "../style/TreeForm.css";
+
 import "../style/MinNode.css";
+import { saveUserSession } from '../utils/userSessions';
+
 
 const TreeVisualization = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { treeData: initialTreeData } = location.state || { treeData: [] };
+  // Support both navigation from form and from history reuse
+  const initialTree = location.state?.treeData || location.state?.tree || {};
+  const initialAlgo = location.state?.algorithm || "";
 
   // State variables
-  const [treeData, setTreeData] = useState(initialTreeData);
-  const [activeComponent, setActiveComponent] = useState(""); // Track active component
+  const [treeData, setTreeData] = useState(initialTree);
+  const [activeComponent, setActiveComponent] = useState(initialAlgo); // Track active component
   const [isLandscape, setIsLandscape] = useState(window.innerWidth > window.innerHeight);
 
   useEffect(() => {
@@ -105,8 +110,23 @@ const TreeVisualization = () => {
       .text((d) => d.data.name);
   };
 
+
+  // Save session when a tree algorithm is selected
   const handleComponentChange = (component) => {
-    setActiveComponent(component); // Set the active component based on user interaction
+    setActiveComponent(component);
+    // Only save if it's an algorithm (not add/remove)
+    const algoLabels = [
+      "MinNode", "MaxNode", "DFS", "BFS", "Inorder", "Preorder", "Postorder"
+    ];
+    if (algoLabels.includes(component)) {
+      saveUserSession(
+        component,
+        { tree: treeData },
+        null,
+        null,
+        ''
+      );
+    }
   };
 
   return (

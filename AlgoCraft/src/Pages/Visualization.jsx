@@ -6,6 +6,7 @@ import Search from '../components/Array Components/Search';
 import BinarySearch from '../components/Array Components/BinarySearch';
 import Remove from '../components/Array Components/Remove';
 import '../style/bubble.css'
+import { saveUserSession } from '../utils/userSessions';
 
 import { Link, useLocation } from 'react-router-dom';
 
@@ -93,6 +94,8 @@ const Visualization = () => {
   const handleSearch = () => {
     if (searchValue !== '' && !isNaN(searchValue)) {
       setIsSearching(true); // Start search process
+      // Save session to Firestore
+      saveUserSession('linear-search', { array: [...array], value: searchValue }, null, null, '');
     } else {
       alert('Please enter a valid number to search.');
     }
@@ -112,6 +115,8 @@ const Visualization = () => {
   const handleBinarySearch = () => {
     if (binarySearchValue !== '' && !isNaN(binarySearchValue)) {
       setIsBinarySearching(true); // Start binary search process
+      // Save session to Firestore
+      saveUserSession('binary-search', { array: [...array], value: binarySearchValue }, null, null, '');
     } else {
       alert('Please enter a valid number to search using binary search.');
     }
@@ -120,10 +125,11 @@ const Visualization = () => {
   const handleAlgorithmSelection = (algorithm) => {
     setSelectedAlgorithm(algorithm);
     setShowArray(false);
-
     setShowRemoveInput(false);
     setShowSearchInput(false);
     setShowBinarySearchInput(false);
+    // Save session to Firestore
+    saveUserSession(algorithm, { array: [...array] }, null, null, '');
   };
 
   return (
@@ -213,8 +219,7 @@ const Visualization = () => {
                   <a className="nav-link sidebar-item" onClick={() => handleAlgorithmSelection('heap')} style={{ cursor: 'pointer' }}>
                     Heap Sort
                   </a>
-                </li>
-             
+             </li>  
                 <h5 className="border-bottom pb-2 mt-2" style={{
                   marginBottom: '10px',
                   fontWeight: 'bold',

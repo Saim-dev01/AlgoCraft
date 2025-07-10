@@ -4,6 +4,7 @@ import "../style/AuthForm.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom"; // ✅
+import { saveUserSession } from '../utils/userSessions';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +17,9 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       // Set user in localStorage for auth check
       localStorage.setItem('user', email);
+      // Save login session
+      await saveUserSession('login', { email }, null, null, 'User logged in');
+      alert('Login session created!');
       navigate("/main");
     } catch (err) {
       setError(err.message);

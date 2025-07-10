@@ -16,17 +16,29 @@
     border-color: #6a66d4;
 }
 
-.btn-algomate {
+.btn-login {
     background-color: #FFBF00;
     border-color: #FFBF00;
     font-family: 'CustomFont', sans-serif;
     font-weight: bold;
 }
 
-.btn-algomate:hover {
+.btn-login:hover {
     background-color: #e79f0f;
     /* Slightly darker shade of #fdac0b */
     border-color: #e79f0f;
+}
+.btn-signup {
+    background-color: #fd997a;
+    border-color:#fd997a;
+    font-family: 'CustomFont', sans-serif;
+    font-weight: bold;
+}
+
+.btn-signup:hover {
+    background-color: #f06b43;
+    /* Slightly darker shade of #fdac0b */
+    border-color:#f06b43;
 }
 
 body {

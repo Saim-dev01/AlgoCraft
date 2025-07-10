@@ -5,54 +5,111 @@
   align-items: center;
   justify-content: center;
   min-height: 80vh;
-  background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
-  border-radius: 24px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  padding: 2.5rem 2rem;
-  max-width: 350px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  border-radius: 32px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  padding: 2.5rem 2rem 2.5rem 2rem;
+  max-width: 400px;
   margin: 3rem auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-form-container::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(120deg, #7b73eb 60%, #60a5fa 100%);
+  opacity: 0.13;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.auth-form-container::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(120deg, #60a5fa 60%, #7b73eb 100%);
+  opacity: 0.13;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.auth-form-container form {
+  width: 100%;
+  z-index: 1;
+  position: relative;
 }
 .auth-form-container h2 {
-  color: #3b3b3b;
+  color: #4f46e5;
   font-family: 'PorterBold', sans-serif;
   margin-bottom: 1.5rem;
-  font-size: 2rem;
+  font-size: 2.2rem;
   letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 2px 8px #e0e7ff;
 }
 .auth-form-container input {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.1rem;
   margin-bottom: 1.2rem;
-  border: 1px solid #bfcfff;
-  border-radius: 8px;
-  font-size: 1rem;
+  border: 1.5px solid #bfcfff;
+  border-radius: 10px;
+  font-size: 1.08rem;
   background: #f8faff;
-  transition: border 0.2s;
+  transition: border 0.2s, box-shadow 0.2s;
   font-family: inherit;
+  box-shadow: 0 2px 8px 0 rgba(99, 102, 241, 0.04);
 }
 .auth-form-container input:focus {
-  border: 1.5px solid #6366f1;
+  border: 2px solid #6366f1;
   outline: none;
+  box-shadow: 0 0 0 2px #6366f133;
 }
 .auth-form-container button {
   width: 100%;
-  padding: 0.8rem 0;
-  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  padding: 0.85rem 0;
+  background: linear-gradient(90deg, #7b73eb 0%, #60a5fa 100%);
   color: #fff;
   border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
+  border-radius: 10px;
+  font-size: 1.13rem;
   font-family: 'PorterBold', sans-serif;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
   margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px 0 rgba(99, 102, 241, 0.08);
 }
 .auth-form-container button:hover {
-  background: linear-gradient(90deg, #60a5fa 0%, #6366f1 100%);
-  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(90deg, #60a5fa 0%, #7b73eb 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px 0 rgba(99, 102, 241, 0.13);
 }
 .auth-form-container p {
   color: #ef4444;
   margin-top: 0.5rem;
-  font-size: 0.98rem;
+  font-size: 1.01rem;
+  text-align: center;
+}
+
+/* Add a little animation for form appearance */
+.auth-form-container {
+  animation: popIn 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }

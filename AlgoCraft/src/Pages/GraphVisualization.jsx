@@ -2,21 +2,28 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import * as d3 from 'd3';
+
 import BFSVisualizer from '../components/algorithms/BFSVisualizer';
 import DFSVisualizer from '../components/algorithms/DFSVisualizer';
 import DijkstraVisualizer from '../components/algorithms/DijkstraVisualizer';
 import KruskalVisualizer from '../components/algorithms/KruskalVisualizer';
 import TopologicalSortVisualizer from '../components/algorithms/TopologicalSortVisualizer';
 import '../style/GraphForm.css';
+import { saveUserSession } from '../utils/userSessions';
 
 const GraphVisualization = () => {
     const { state } = useLocation();
-    const initialData = state?.graphData;
+    // Support both navigation from form and from history reuse
+    const initialData = state?.graphData || state?.graph || null;
+    const initialAlgo = state?.algorithm || null;
+    const initialParams = state?.inputParams || {};
 
     // Core state
     const [localData, setLocalData] = useState(initialData);
-    const [selectedAlgo, setSelectedAlgo] = useState(null);
+    const [selectedAlgo, setSelectedAlgo] = useState(initialAlgo);
     const [locked, setLocked] = useState(false);
+    // For BFS/DFS/Dijkstra start node reuse
+    const [algoParams, setAlgoParams] = useState(initialParams);
     // NEW: Remember which nodes and edges have been visited/traversed
     const [visitedNodes, setVisitedNodes] = useState([]);
     const [traversedEdges, setTraversedEdges] = useState([]);
@@ -146,6 +153,7 @@ const GraphVisualization = () => {
         setDeleteEdgeMode(false);
     };
 
+
     // List of algorithms
     const algoList = [
         { label: 'BFS Traversal', key: 'bfs' },
@@ -166,6 +174,19 @@ const GraphVisualization = () => {
         margin: isAlgoRunning ? '0 0 0 20px' : '0 auto',
         // make room for the controls to sit above the graph
         paddingTop: isAlgoRunning ? '1.8rem' : '0'
+    };
+
+    // Save session when algorithm is selected
+    const handleAlgoSelect = (algoKey) => {
+        setSelectedAlgo(algoKey);
+        // Save session to Firestore
+        saveUserSession(
+            algoList.find(a => a.key === algoKey)?.label || algoKey,
+            { graph: localData },
+            null,
+            null,
+            ''
+        );
     };
 
     return (
@@ -397,7 +418,7 @@ const GraphVisualization = () => {
                                                 cursor: 'pointer',
                                                 backgroundColor: selectedAlgo === key ? '#495057' : 'transparent'
                                             }}
-                                            onClick={() => setSelectedAlgo(key)}
+                                            onClick={() => handleAlgoSelect(key)}
                                         >
                                             {label}
                                         </a>

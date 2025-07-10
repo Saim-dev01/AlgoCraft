@@ -2,9 +2,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
+
 import SortingComponent from '../components/linklisttcomponents/LinkedListSort';
 import SearchComponent from '../components/linklisttcomponents/SearchComponent';
 import AddBetweenComponent from '../components/linklisttcomponents/AddBetweenComponent.jsx';
+import { saveUserSession } from '../utils/userSessions';
 
 class Node {
     constructor(value) {
@@ -42,11 +44,12 @@ const LLVisualization = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    useEffect(() => {
-        if (location.state && location.state.linkedList) {
-            const list = location.state.linkedList;
-            let newHead = null;
 
+    useEffect(() => {
+        // Support both navigation from form and from history reuse
+        if (location.state && (location.state.linkedList || location.state.list)) {
+            const list = location.state.linkedList || location.state.list;
+            let newHead = null;
             list.forEach((value) => {
                 const newNode = new Node(value);
                 if (!newHead) {
@@ -59,55 +62,57 @@ const LLVisualization = () => {
                     currentNode.next = newNode;
                 }
             });
-
             setHead(newHead);
         }
     }, [location]);
+
 
     const handleAddNodeToHead = () => {
         if (newNodeValueH.trim() === '') {
             alert('Please enter a valid value.');
             return;
         }
-
         const newNode = new Node(newNodeValueH.trim());
         newNode.next = head;
         setHead(newNode);
         setNewNodeValueH('');
+        // Save session
+        saveUserSession('add-node-head', { list: getListArray(newNode) }, null, null, '');
     };
+
 
     const handleAddNodeToTail = () => {
         if (newNodeValue.trim() === '') {
             alert('Please enter a valid value.');
             return;
         }
-
         const newNode = new Node(newNodeValue.trim());
         if (!head) {
             setHead(newNode);
+            // Save session
+            saveUserSession('add-node-tail', { list: getListArray(newNode) }, null, null, '');
         } else {
             let currentNode = head;
             while (currentNode.next) {
                 currentNode = currentNode.next;
             }
             currentNode.next = newNode;
+            // Save session
+            saveUserSession('add-node-tail', { list: getListArray(head) }, null, null, '');
         }
         setNewNodeValue('');
     };
+
 
     const handleAddNodeBetween = () => {
         if (newNodeBetweenValue.trim() === '' || newNodePosition.trim() === '') {
             alert('Please enter valid values.');
             return;
         }
-
         const value = newNodeBetweenValue.trim();
         const position = parseInt(newNodePosition, 10);
-
         setIsAddingBetween(true);
-
         setNewlyAddedNode({ value: value, position: position });
-
         setTimeout(() => {
             const updatedHead = AddBetweenComponent(head, value, position);
             setHead(updatedHead);
@@ -115,43 +120,44 @@ const LLVisualization = () => {
             setNewNodePosition('');
             setIsAddingBetween(false);
             setNewlyAddedNode(null);
+            // Save session
+            saveUserSession('add-node-between', { list: getListArray(updatedHead), value, position }, null, null, '');
         }, 1500);
     };
+
 
     const handleRemoveNode = () => {
         if (!removeNodeValue.trim()) {
           alert('Please enter a value to remove.');
           return;
         }
-    
         const valueToRemove = removeNodeValue.trim();
-    
         if (!head) {
           alert('Linked list is empty.');
           return;
         }
-    
         if (head.value === valueToRemove) {
           // If the head node is the one to remove
           setHead(head.next);
           setRemoveNodeValue('');
+          // Save session
+          saveUserSession('remove-node', { list: getListArray(head?.next), value: valueToRemove }, null, null, '');
           return;
         }
-    
         let current = head;
         let prev = null;
-    
         while (current) {
           if (current.value === valueToRemove) {
             // Node to remove found
             prev.next = current.next;  // Skip the current node
             setRemoveNodeValue('');
+            // Save session
+            saveUserSession('remove-node', { list: getListArray(head), value: valueToRemove }, null, null, '');
             return;
           }
           prev = current;
           current = current.next;
         }
-    
         alert('Node with specified value not found.');
         setRemoveNodeValue('');
       };
@@ -166,10 +172,32 @@ const LLVisualization = () => {
         return nodes;
     };
 
+
     const handleSort = () => {
         setIsSearching(false);
         setSearchQuery('');
         setIsSorting(true);
+        // Save session
+        saveUserSession('sort', { list: getListArray(head) }, null, null, '');
+    };
+
+    // Helper to convert linked list to array
+    function getListArray(headNode) {
+        const arr = [];
+        let curr = headNode;
+        while (curr) {
+            arr.push(curr.value);
+            curr = curr.next;
+        }
+        return arr;
+    }
+
+    // Save session for search
+    const handleSearch = () => {
+        setIsSorting(false);
+        setIsSearching(true);
+        // Save session
+        saveUserSession('search', { list: getListArray(head), value: searchQuery }, null, null, '');
     };
 
     return (
@@ -340,7 +368,6 @@ const LLVisualization = () => {
                                 </h5>
 
                                 <li className="nav-item sidebar-item">
-                                    
                                     <div className="input-container mt-2 ms-3" style={{ display: 'flex', alignItems: 'center' }}>
                                         <input
                                             type="text"
@@ -352,8 +379,7 @@ const LLVisualization = () => {
                                         />
                                         <button
                                             onClick={() => {
-                                                setIsSorting(false);
-                                                setIsSearching(true);
+                                                handleSearch();
                                                 if (searchComponentRef.current) {
                                                     searchComponentRef.current.performSearch(searchQuery);
                                                 }

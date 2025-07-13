@@ -1,25 +1,23 @@
-// src/pages/Login.jsx
 import React, { useState } from "react";
 import "../style/AuthForm.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom"; // ✅
-import { saveUserSession } from '../utils/userSessions';
+import { useNavigate } from "react-router-dom";
+import { saveUserSession } from "../utils/userSessions";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // Set user in localStorage for auth check
-      localStorage.setItem('user', email);
-      // Save login session
-      await saveUserSession('login', { email }, null, null, 'User logged in');
-      alert('Login session created!');
+      localStorage.setItem("user", email);
+      await saveUserSession("login", { email }, null, null, "User logged in");
+      alert("Login session created!");
       navigate("/main");
     } catch (err) {
       setError(err.message);
@@ -27,18 +25,49 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-form-container">
-      <form onSubmit={handleLogin}>
-        <h2>Login</h2>
-        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required />
-        <button type="submit">Login</button>
-        {error && <p>{error}</p>}
-        <div style={{ marginTop: '1rem', textAlign: 'center' }}>
-          <span style={{ fontSize: '0.98rem', color: '#555' }}>Don't have an account? </span>
-          <a href="/register" style={{ color: '#6366f1', textDecoration: 'underline', fontWeight: 600 }}>Register</a>
+    <div className="login-wrapper">
+      <div className="login-left-panel">
+        <h1>Welcome Back!</h1>
+        <p>
+          To keep connected with us and save your history, please login with
+          your personal info.
+        </p>
+
+        {/* Triangular decorative shapes */}
+        <div className="triangle triangle-1"></div>
+        <div className="triangle triangle-2"></div>
+        <div className="triangle triangle-3"></div>
+      </div>
+
+      <div className="login-right-panel">
+        <div className="auth-form-container">
+          <form onSubmit={handleLogin}>
+            <h1>Login</h1>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit">Login</button>
+
+            {error && <p>{error}</p>}
+
+            <div className="form-footer">
+              <span>Don't have an account? </span>
+              <a href="/register">Register</a>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getAuth, signOut, onAuthStateChanged } from "firebase/auth"; // ✅ Firebase imports
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { saveUserSession } from "../utils/userSessions";
 import logo from "../assets/logo.png";
 import "../style/Navbar.css";
@@ -11,7 +11,7 @@ function CustomNavbar() {
   const [user, setUser] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
-  const auth = getAuth(); // ✅ Get the current Firebase auth instance
+  const auth = getAuth();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -40,7 +40,7 @@ function CustomNavbar() {
     try {
       await saveUserSession("logout", {}, null, null, "User logged out");
       alert("Logout successfully!");
-    } catch (e) {
+    } catch {
       // ignore error
     }
     signOut(auth)
@@ -80,16 +80,16 @@ function CustomNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto">
-            <Nav.Link as={Link} to="/#features" className="mx-3">
+            <Nav.Link as={Link} to="/main#features" className="mx-3">
               Features
             </Nav.Link>
-            <Nav.Link as={Link} to="/#how-to-visualize" className="mx-3">
+            <Nav.Link as={Link} to="/main#how-to-visualize" className="mx-3">
               How to Visualize
             </Nav.Link>
-            <Nav.Link as={Link} to="/#about-us" className="mx-3">
+            <Nav.Link as={Link} to="/main#about-us" className="mx-3">
               About Us
             </Nav.Link>
-            <Nav.Link as={Link} to="/#contact" className="mx-3">
+            <Nav.Link as={Link} to="/main#contact" className="mx-3">
               Contact
             </Nav.Link>
             {user && (

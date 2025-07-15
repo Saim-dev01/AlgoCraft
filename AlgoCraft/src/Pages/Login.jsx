@@ -17,7 +17,7 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       localStorage.setItem("user", email);
       await saveUserSession("login", { email }, null, null, "User logged in");
-      alert("Login session created!");
+    //  alert("Login session created!");
       navigate("/main");
     } catch (err) {
       setError(err.message);

@@ -110,6 +110,7 @@
   font-size: 16px;
   box-shadow: none;
   border: none;
+  max-width: 200%;;
 }
 
 .startbtn {
@@ -144,6 +145,7 @@
   background: #fff;
   color: #ccc;   /* Or any color you want for the text */
   cursor: not-allowed;
+  border:1px solid #ccc; /* Optional: to indicate it's disabled */
 }
 
 .nav-link.sidebar-item {

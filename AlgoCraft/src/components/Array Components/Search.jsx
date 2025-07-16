@@ -34,9 +34,6 @@ const Search = ({ array, valueToSearch, onComplete }) => {
                     setFoundIndex(currentIndex);
                     setHighlightedLine(3); // Highlight the "target found" line in the algorithm
                     setIsSearching(false); // Stop searching once the target is found
-
-                    // Notify the parent that the search is complete but DO NOT reset the state
-                    setTimeout(() => onComplete(currentIndex), 5000);
                 } else {
                     setCurrentIndex((prev) => prev + 1); // Move to the next index if not found
                 }

@@ -55,8 +55,11 @@ const Visualization = () => {
   // Remove functionality
   const handleRemoveClick = () => {
     setShowRemoveInput(true);
-    setShowSearchInput(false); // Hide search input when remove is selected
-    setShowBinarySearchInput(false); // Hide binary search input
+    setShowSearchInput(false);
+    setShowBinarySearchInput(false);
+    setIsSearching(false);         // Reset search state
+    setIsBinarySearching(false);   // Reset binary search state
+    setSelectedAlgorithm('');      // Reset algorithm selection
   };
 
   const handleRemoveInputChange = (e) => {
@@ -128,6 +131,9 @@ const Visualization = () => {
     setShowRemoveInput(false);
     setShowSearchInput(false);
     setShowBinarySearchInput(false);
+    setIsSearching(false);         // Reset search state
+    setIsBinarySearching(false);   // Reset binary search state
+    setIsRemoving(false);          // Reset remove state
     // Save session to Firestore
     saveUserSession(algorithm, { array: [...array] }, null, null, '');
   };

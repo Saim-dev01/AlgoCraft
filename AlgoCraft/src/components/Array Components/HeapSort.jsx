@@ -76,7 +76,6 @@ const HeapSort = ({ array }) => {
       for (let i = n - 1; i > 0; i--) {
         steps.push({ text: `Swapping root ${arr[0]} with end element ${arr[i]}`, swap: [0, i], highlight: 6 });
         [arr[0], arr[i]] = [arr[i], arr[0]];
-        setSortedIndex((prev) => [...prev, i]);
         heapify(arr, i, 0);
       }
     };
@@ -138,6 +137,7 @@ const HeapSort = ({ array }) => {
       } else if (step.text === "Sorting Completed!") {
         setSortingComplete(true);
         setMessage("Sorting Completed!");
+        setSortedIndex(Array.from({ length: currentArray.length }, (_, i) => i));
       }
       setTimeout(() => {
         setCurrentStep((prevStep) => prevStep + 1);

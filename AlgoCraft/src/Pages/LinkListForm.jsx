@@ -112,7 +112,7 @@ function LinkedListForm() {
               {error && <small className="text-danger">{error}</small>}
             </div>
 
-            <div className="button-group d-flex justify-content-start">
+            <div className="button-group d-flex justify-content-center">
               <button
                 type="button"
                 className="btn btn-default me-2"
@@ -134,7 +134,7 @@ function LinkedListForm() {
 
         {/* Right side: Linked List visualization */}
         {linkedList.length > 0 && (
-          <div className="linkedlist-visualization col-lg-12">
+          <div className="linkedlist-visualization col-lg-12 mt-3">
             <h2 className="text-center fw-bold mb-5 init-visual">Linked List Visualization</h2>
             <div className="linkedlist-container ms-lg-4 d-flex flex-row align-items-center justify-content-center">
               {linkedList.map((value, index) => (

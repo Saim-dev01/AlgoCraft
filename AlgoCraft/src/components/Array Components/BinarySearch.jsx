@@ -203,7 +203,7 @@ const BinarySearch = ({ array, valueToSearch, onComplete }) => {
         <button className="startbtn" onClick={handleSort}>Start Sorting & Searching</button>
         <button className="restartbtn" onClick={handleClear}>Reset</button>
         <button
-          className="pausebtn"
+          className="pausebtn" style={{maxWidth: '200%'}}
           onClick={() => setIsPaused(prev => !prev)}
           disabled={!isSorting} // Disable button when sorting hasn't started
         >

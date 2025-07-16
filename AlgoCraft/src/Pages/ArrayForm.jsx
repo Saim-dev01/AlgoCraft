@@ -126,7 +126,7 @@ function ArrayForm() {
                             {error && <small className="text-danger">{error}</small>}
                         </div>
 
-                        <div className="button-group d-flex justify-content-start">
+                        <div className="button-group d-flex justify-content-center">
                             <button
                                 type="button"
                                 className="btn btn-default-values me-2"
@@ -153,7 +153,7 @@ function ArrayForm() {
 
                 {/* Right side: Array visualization, only shown if showArray is true */}
                 {showArray && (
-                    <div className="array-visualization col-lg-12">
+                    <div className="array-visualization col-lg-12 mt-2">
                         <h2 className='text-center fw-bold mb-5 init-visual'>Initial Visualization</h2>
                         <div className="array-container ms-lg-4">
                             {array.map((value, index) => (

@@ -162,10 +162,11 @@ const QuickSort = ({ array }) => {
         setMessage(`Comparing ${currentArray[step.comparing[0]]} and pivot ${currentArray[step.comparing[1]]}`);
       } else if (step.pivot !== undefined) {
         setMessage(`Pivot selected: ${currentArray[step.pivot]}`);
-        setSortedIndex((prev) => [...prev, step.pivot]);
       } else if (step.text === "Sorting Completed!") {
         setSortingComplete(true);
         setMessage("Sorting Completed!");
+        // Mark all indices as sorted at the end
+        setSortedIndex(Array.from({ length: currentArray.length }, (_, i) => i));
       }
 
       setTimeout(() => {
